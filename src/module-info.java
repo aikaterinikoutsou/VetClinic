@@ -6,4 +6,5 @@
  *
  */
 module VetClinic {
+	requires java.sql;
 }
