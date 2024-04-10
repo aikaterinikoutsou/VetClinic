@@ -1,6 +1,7 @@
 package VetClinicPOJOs;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -22,6 +23,7 @@ public class Owner implements Serializable
 
 	public Owner() {
 		super();
+		pets = new ArrayList<Pet>();
 	}
 
 	public List<Pet> getPets() {
@@ -108,7 +110,7 @@ public class Owner implements Serializable
 	@Override
 	public String toString() {
 		return "Owner [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", cardnumber="
-				+ cardnumber + ", pets=" + pets + "]";
+				+ cardnumber + "]";
 	}
 	
 	

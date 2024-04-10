@@ -2,6 +2,8 @@ package VetClinicPOJOs;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Pet implements Serializable{
@@ -19,9 +21,11 @@ public class Pet implements Serializable{
 	private String typeofAnimal;
 	private Date dob;
 	private Owner owner;
+	private List<Vet> vets;
 	
 	public Pet() {
 		super();
+		vets = new ArrayList<Vet>();
 	}
 	
 	public Integer getId() {
@@ -72,9 +76,19 @@ public class Pet implements Serializable{
 	public void setOwner(Owner owner) {
 		this.owner = owner;
 	}
+	
+	
+	public List<Vet> getVets() {
+		return vets;
+	}
+
+	public void setVets(List<Vet> vets) {
+		this.vets = vets;
+	}
+
 	@Override
 	public int hashCode() {
-		return Objects.hash(breed, coat, cured, dob, id, name, owner, typeofAnimal);
+		return Objects.hash(breed, coat, cured, dob, id, name, owner, typeofAnimal, vets);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -88,7 +102,7 @@ public class Pet implements Serializable{
 		return Objects.equals(breed, other.breed) && Objects.equals(coat, other.coat)
 				&& Objects.equals(cured, other.cured) && Objects.equals(dob, other.dob) && Objects.equals(id, other.id)
 				&& Objects.equals(name, other.name) && Objects.equals(owner, other.owner)
-				&& Objects.equals(typeofAnimal, other.typeofAnimal);
+				&& Objects.equals(typeofAnimal, other.typeofAnimal) && Objects.equals(vets, other.vets);
 	}
 	
 	@Override
