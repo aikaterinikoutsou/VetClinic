@@ -19,7 +19,11 @@ public class Owner implements Serializable
 	private Integer cardnumber;
 	private List<Pet> pets;
 	
-	
+
+	public Owner() {
+		super();
+	}
+
 	public List<Pet> getPets() {
 		return pets;
 	}
@@ -77,11 +81,6 @@ public class Owner implements Serializable
 
 	public void setCardnumber(Integer cardnumber) {
 		this.cardnumber = cardnumber;
-	}
-
-
-	public Owner() {
-		super();
 	}
 
 
