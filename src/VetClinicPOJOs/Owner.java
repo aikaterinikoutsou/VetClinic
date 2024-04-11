@@ -39,6 +39,19 @@ public class Owner implements Serializable
 
 
 
+	public Owner(Integer id, String name, String email, Integer phone, Integer cardnumber) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.phone = phone;
+		this.cardnumber = cardnumber;
+		this.pets = new ArrayList<Pet>();
+
+	}
+
+
+
 	public List<Pet> getPets() {
 		return pets;
 	}

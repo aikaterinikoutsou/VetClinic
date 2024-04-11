@@ -1,6 +1,10 @@
 package VetClinicJDBC;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import VetClinicIfaces.OwnerManager;
 import VetClinicPOJOs.Owner;
@@ -35,6 +39,41 @@ public class JDBCOwnerManager implements OwnerManager{
 			e.printStackTrace();
 		}
 		
+	}
+
+	@Override
+	public List<Owner> getListOfOwners() {
+		// TODO Auto-generated method stub
+		List<Owner> owners= new ArrayList<Owner>();
+		
+		try {
+			Statement stmt = manager.getConnection().createStatement();
+			String sql = "SELECT * FROM owners";
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next())
+			{
+				Integer id = rs.getInt("id");
+				String name = rs.getString("name");
+				String email = rs.getString("email");
+				Integer phone = rs.getInt("phone");
+				Integer cardnumber = rs.getInt("cardnumber");
+				
+				Owner o = new Owner (id, name, email, phone, cardnumber);
+				owners.add(o);
+			}
+			
+			rs.close();
+			stmt.close();
+			
+		}catch(Exception e)
+		{
+			e.printStackTrace();
+		
+		}
+		
+		
+		return null;
 	}
 	
 
