@@ -2,6 +2,7 @@ package UI;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.List;
 
 import VetClinicIfaces.OwnerManager;
 import VetClinicJDBC.JDBCManager;
@@ -26,6 +27,7 @@ public class Menu {
 			do {
 				System.out.println("Choose an option");
 				System.out.println("1. Add a new owner.");
+				System.out.println("2. Print all the owners in DB.");
 				System.out.println("0. Exit.");
 				
 				choice = Integer.parseInt(reader.readLine());
@@ -35,6 +37,8 @@ public class Menu {
 				case 1: 
 					createOwner();
 					break;
+				case 2:
+					getAllowners();
 				case 0:
 					jdbcmanager.disconnect();
 					System.exit(0);
@@ -47,6 +51,7 @@ public class Menu {
 		}catch(Exception e)
 		{e.printStackTrace();}
 	}
+	
 	private static void createOwner() throws Exception
 	{
 		System.out.println("Type the name of the owner");
@@ -62,5 +67,14 @@ public class Menu {
 		
 		ownermanager.createOwner(o);
 	}
-
+	
+	private static void getAllowners() throws Exception{
+		
+		List<Owner> owners = null;
+		
+		owners = ownermanager.getListOfOwners();
+		
+		System.out.println(owners);
+		
+	}
 }

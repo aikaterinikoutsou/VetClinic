@@ -73,7 +73,7 @@ public class JDBCOwnerManager implements OwnerManager{
 		}
 		
 		
-		return null;
+		return owners;
 	}
 	
 
