@@ -14,7 +14,6 @@ public class Pet implements Serializable{
 	private static final long serialVersionUID = -4264165912558346853L;
 
 	private Integer id;
-	private String breed;
 	private String coat;
 	private String name;
 	private Boolean cured;
@@ -28,17 +27,32 @@ public class Pet implements Serializable{
 		vets = new ArrayList<Vet>();
 	}
 	
+	public Pet(Integer id, String coat, String name, Boolean cured, String typeofAnimal, Date dob, Owner owner) {
+		super();
+		this.id = id;
+		this.coat = coat;
+		this.name = name;
+		this.cured = cured;
+		this.typeofAnimal = typeofAnimal;
+		this.dob = dob;
+		this.owner = owner;
+	}
+
+	public Pet(String coat, String name, Boolean cured, String typeofAnimal, Date dob, Owner owner) {
+		super();
+		this.coat = coat;
+		this.name = name;
+		this.cured = cured;
+		this.typeofAnimal = typeofAnimal;
+		this.dob = dob;
+		this.owner = owner;
+	}
+
 	public Integer getId() {
 		return id;
 	}
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	public String getBreed() {
-		return breed;
-	}
-	public void setBreed(String breed) {
-		this.breed = breed;
 	}
 	public String getCoat() {
 		return coat;

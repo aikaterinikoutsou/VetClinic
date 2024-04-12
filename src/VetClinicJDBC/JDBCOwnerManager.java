@@ -75,6 +75,35 @@ public class JDBCOwnerManager implements OwnerManager{
 		
 		return owners;
 	}
+
+	@Override
+	public Owner searchOwnerById(Integer id) {
+		// TODO Auto-generated method stub
+		Owner o = null;
+		
+		
+		try {
+			Statement stmt = manager.getConnection().createStatement();
+			String sql = "SELECT * FROM owners WHERE id=" + id;
+		
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			Integer o_id = rs.getInt("id");
+			String name = rs.getString("name");
+			String email = rs.getString("email");
+			Integer phone = rs.getInt("phone");
+			Integer cardnumber = rs.getInt("cardnumber");
+			
+		    o = new Owner (o_id, name, email, phone, cardnumber);
+		    
+		    rs.close();
+		    stmt.close();
+		    
+		}catch(Exception e) {e.printStackTrace();}
+		
+		
+		return o;
+	}
 	
 
 }
