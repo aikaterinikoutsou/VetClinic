@@ -87,6 +87,24 @@ public class JDBCPetManager implements PetManager{
 		
 		return pets;
 	}
+
+	@Override
+	public void assingPet2Vet(Integer pet_id, Integer vet_id) {
+		// TODO Auto-generated method stub
+		try {
+			String sql = "INSERT INTO treats (vet_id, pet_id) VALUES (?,?);";
+			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
+			
+			prep.setInt(1, vet_id);
+			prep.setInt(2, pet_id);
+			prep.executeUpdate();
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
 	
 
 }

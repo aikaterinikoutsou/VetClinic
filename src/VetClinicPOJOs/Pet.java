@@ -102,7 +102,7 @@ public class Pet implements Serializable{
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(breed, coat, cured, dob, id, name, owner, typeofAnimal, vets);
+		return Objects.hash(coat, cured, dob, id, name, owner, typeofAnimal, vets);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -113,7 +113,7 @@ public class Pet implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Pet other = (Pet) obj;
-		return Objects.equals(breed, other.breed) && Objects.equals(coat, other.coat)
+		return Objects.equals(coat, other.coat)
 				&& Objects.equals(cured, other.cured) && Objects.equals(dob, other.dob) && Objects.equals(id, other.id)
 				&& Objects.equals(name, other.name) && Objects.equals(owner, other.owner)
 				&& Objects.equals(typeofAnimal, other.typeofAnimal) && Objects.equals(vets, other.vets);
@@ -121,7 +121,7 @@ public class Pet implements Serializable{
 	
 	@Override
 	public String toString() {
-		return "Pet [id=" + id + ", breed=" + breed + ", coat=" + coat + ", name=" + name + ", cured=" + cured
+		return "Pet [id=" + id + ", coat=" + coat + ", name=" + name + ", cured=" + cured
 				+ ", typeofAnimal=" + typeofAnimal + ", dob=" + dob + ", owner=" + owner + "]";
 	}
 
