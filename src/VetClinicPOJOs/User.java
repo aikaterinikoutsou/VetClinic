@@ -4,6 +4,17 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.TableGenerator;
+
+@Entity
+@Table( name= "users")
 public class User implements Serializable {
 
 	/**
@@ -11,9 +22,15 @@ public class User implements Serializable {
 	 */
 	private static final long serialVersionUID = -1397176237352001696L;
 	
+	@Id
+	@GeneratedValue (generator = "users")
+	@TableGenerator(name = "users", table = "sqite_sequence",  pkColumnName = "name", valueColumnName = "seq", pkColumnValue = "users")
 	private Integer id;
 	private String email;
+	@Lob
 	private byte[] password;
+	@ManyToOne
+	@JoinColumn (name = "role_id")
 	private Role role;
 	
 	public User() {

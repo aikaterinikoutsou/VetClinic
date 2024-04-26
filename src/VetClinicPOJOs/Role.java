@@ -4,21 +4,40 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Persistence;
+import javax.persistence.Table;
+import javax.persistence.TableGenerator;
+
+@Entity
+@Table(name="roles")
 public class Role implements Serializable {
 
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6783060528538523685L;
 	
+	
+	@Id
+	@GeneratedValue(generator = "roles")
+	@TableGenerator(name = "roles", table = "sqlite_sequence", pkColumnName = "name", valueColumnName="seq", pkColumnValue = "roles")
 	private Integer id;
 	private String name;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
 	private List<User> users;
 	
 	
 	public Role() {
 		super();
+	}
+
+
+	public Role(String name) {
+		super();
+		this.name = name;
 	}
 
 
