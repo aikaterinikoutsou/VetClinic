@@ -91,12 +91,15 @@ public class Pet implements Serializable{
 	public void setOwner(Owner owner) {
 		this.owner = owner;
 	}
-	public Blob getFoto() {
+	
+	public Byte[] getFoto() {
 		return foto;
 	}
-	public void setFoto(Blob foto) {
+
+	public void setFoto(Byte[] foto) {
 		this.foto = foto;
 	}
+
 	public List<Vet> getVets() {
 		return vets;
 	}
