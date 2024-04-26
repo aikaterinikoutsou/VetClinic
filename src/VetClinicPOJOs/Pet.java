@@ -1,7 +1,6 @@
 package VetClinicPOJOs;
 
 import java.io.Serializable;
-import java.sql.Blob;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +20,7 @@ public class Pet implements Serializable{
 	private String typeofAnimal;
 	private Date dob;
 	private Owner owner;
-	private Blob foto;
+	private Byte[] foto;
 	private List<Vet> vets;
 	
 	public Pet() {
