@@ -35,7 +35,6 @@ public class Menu {
 		petmanager = new JDBCPetManager(jdbcmanager);
 		usermanager = new JPAUserManager();
 		
-		
 		try {
 			int choice;
 			
