@@ -15,7 +15,7 @@ public class JDBCVetManager implements VetManager {
 
 	@Override
 	public void createVet(Vet v) {
-		// TODO Auto-generated method stub
+		
 		try {
 			String sql = "INSERT INTO vets (name, specialty, phone, email, licence)"
 					+"VALUES(?,?,?,?,?)";
@@ -37,7 +37,8 @@ public class JDBCVetManager implements VetManager {
 
 	@Override
 	public void updateSpeciality(Integer vet_id, String n_speciality) {
-		// TODO Auto-generated method stub
+		
+		
 		try {
 			String sql = "UPDATE vets SET specialty= ? WHERE id= ?;";
 			PreparedStatement prep = manager.getConnection().prepareStatement(sql);
