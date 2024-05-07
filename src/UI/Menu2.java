@@ -45,7 +45,7 @@ public class Menu {
 				System.out.println("1. Login User");
 				System.out.println("2. Sign-up new user");
 				System.out.println("0. Exit.");
-				
+								
 				choice = Integer.parseInt(reader.readLine());
 								
 				switch(choice)
