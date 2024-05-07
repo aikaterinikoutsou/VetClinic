@@ -121,6 +121,12 @@ public class JPAUserManager implements UserManager {
 		return u;
 	}
 
+	@Override
+	public void changePassword(User u, String new_passwd) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 
 }
