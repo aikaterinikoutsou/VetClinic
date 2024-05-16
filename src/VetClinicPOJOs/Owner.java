@@ -5,6 +5,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
+
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlRootElement (name = "Owner")
+
 public class Owner implements Serializable
 {
 
@@ -12,12 +23,18 @@ public class Owner implements Serializable
 	 * 
 	 */
 	private static final long serialVersionUID = 8016658301900081451L;
-
+	@XmlTransient
 	private Integer id;
+	@XmlAttribute
 	private String name;
+	@XmlElement
 	private String email;
+	@XmlElement
 	private Integer phone;
+	@XmlElement
 	private Integer cardnumber;
+	@XmlElement (name = "Pet")
+	@XmlElementWrapper(name = "Pets")
 	private List<Pet> pets;
 	
 
