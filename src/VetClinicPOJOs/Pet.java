@@ -19,7 +19,7 @@ import VetClinicXMLutils.SQLDateAdapter;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "Pet")
-@XmlType(propOrder = {"typeOfAnimal", "owner","cured", "coat", "dob"})
+@XmlType(propOrder = {"typeofAnimal", "owner","cured", "coat", "dob"})
 public class Pet implements Serializable{
 
 	/**

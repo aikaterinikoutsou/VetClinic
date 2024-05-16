@@ -11,6 +11,7 @@ import java.util.List;
 import VetClinicIfaces.OwnerManager;
 import VetClinicIfaces.PetManager;
 import VetClinicIfaces.UserManager;
+import VetClinicIfaces.XMLManager;
 import VetClinicJDBC.JDBCManager;
 import VetClinicJDBC.JDBCOwnerManager;
 import VetClinicJDBC.JDBCPetManager;
@@ -19,6 +20,7 @@ import VetClinicPOJOs.Owner;
 import VetClinicPOJOs.Pet;
 import VetClinicPOJOs.Role;
 import VetClinicPOJOs.User;
+import VetClinicXML.XMLManagerImpl;
 
 public class Menu {
 
@@ -27,6 +29,7 @@ public class Menu {
 	private static PetManager petmanager;
 	private static BufferedReader reader = new BufferedReader (new InputStreamReader(System.in));
 	private static UserManager usermanager;
+	private static XMLManager xmlmanager;
 	
 	public static void main(String[] args) {
 		
@@ -34,6 +37,7 @@ public class Menu {
 		ownermanager = new JDBCOwnerManager(jdbcmanager); 
 		petmanager = new JDBCPetManager(jdbcmanager);
 		usermanager = new JPAUserManager();
+		xmlmanager = new XMLManagerImpl();
 		
 		try {
 			int choice;
@@ -50,13 +54,16 @@ public class Menu {
 				switch(choice)
 				{
 				case 1: 
-					login();					
+					login();
+					break;
 				case 2:
 					System.out.println("Add info of new user.");
 					signUpUser();
+					break;
 				case 3: 
 					System.out.println("Udpate the password of an exissting user.");
 					updatePassword();
+					break;
 				case 0:
 					System.out.println("Exiting application.");
 					jdbcmanager.disconnect();
@@ -104,12 +111,12 @@ public class Menu {
 		{
 			System.out.println("Login of owner successful!");
 			//call for owner submenu;
-			ownerMenu(email);
+			ownerMenu(u.getId());
 		}
 		
 	}
 
-	private static void ownerMenu(String email) {
+	private static void ownerMenu(Integer id) {
 		// TODO Auto-generated method stub
 		try {
 			int choice;
@@ -119,6 +126,7 @@ public class Menu {
 				System.out.println("2. Print all the owners in DB.");
 				System.out.println("3. Add a new pet in the DB");
 				System.out.println("4. Print all the pets of an owner.");
+				System.out.println("5. Print me to xml.");
 				System.out.println("0. Return.");
 				
 				choice = Integer.parseInt(reader.readLine());
@@ -134,6 +142,8 @@ public class Menu {
 					createPet();
 				case 4:
 					printOwnersPets();
+				case 5:
+					printMe(id);
 				case 0:
 					System.out.println("Back to main menu");
 					
@@ -144,6 +154,11 @@ public class Menu {
 			
 		}catch(Exception e)
 		{e.printStackTrace();}
+	}
+
+	private static void printMe(Integer id) {
+		// TODO Auto-generated method stub
+		xmlmanager.owner2xml(id);
 	}
 
 	private static void signUpUser() {

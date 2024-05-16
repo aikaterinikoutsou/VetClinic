@@ -58,7 +58,7 @@ public class JDBCPetManager implements PetManager{
 		
 		try {
 			Statement stmt = manager.getConnection().createStatement();
-			String sql = "SELECT * FROM pets WHERE owner_id="+owner_id;
+			String sql = "SELECT * FROM pets WHERE id="+owner_id;
 			
 			ResultSet rs = stmt.executeQuery(sql);
 			

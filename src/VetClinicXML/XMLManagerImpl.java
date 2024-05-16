@@ -41,8 +41,9 @@ public class XMLManagerImpl implements XMLManager {
 			JAXBContext jaxbContext = JAXBContext.newInstance(Owner.class);
 			Marshaller marshaller = jaxbContext.createMarshaller();
 			
-			File file = new File("./xmls/Owner.xml");
+			File file = new File("Owner.xml");
 			marshaller.marshal(o, file);
+			System.out.print(o);
 		}
 		catch(Exception e) {
 			e.printStackTrace();
