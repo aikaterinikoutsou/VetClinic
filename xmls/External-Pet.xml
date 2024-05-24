@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<!DOCTYPE Pet [
+<!ELEMENT Pet (typeofAnimal, cured, coat, dob, owner)>
+	<!ATTLIST Pet name CDATA #REQUIRED>
+		<!ELEMENT typeofAnimal (#PCDATA)>
+		<!ELEMENT cured (#PCDATA)>
+		<!ELEMENT coat (#PCDATA)>
+		<!ELEMENT dob (#PCDATA)>
+		<!ELEMENT owner (email, phone?,cardnumber?)>
+		<!ATTLIST owner name CDATA #REQUIRED>
+		<!ELEMENT email  (#PCDATA)>
+		<!ELEMENT phone  (#PCDATA)>
+		<!ELEMENT cardnumber  (#PCDATA)>	
+]>
+
+
+<Pet name= "Daisy">
+	<typeofAnimal>cat</typeofAnimal>
+	<cured>1</cured>
+	<coat>Grey</coat>
+	<dob>2021-05-12</dob>	
+	<owner name = "Katerina">
+			<email>kkoutsou@freemail.gr</email>	
+			<phone>5146152</phone>
+			<cardnumber>2456789</cardnumber>
+	</owner>
+</Pet>
+		
+	

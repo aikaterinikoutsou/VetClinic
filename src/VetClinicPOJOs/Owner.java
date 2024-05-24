@@ -12,10 +12,11 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import javax.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement (name = "Owner")
-
+@XmlRootElement (name = "owner")
+@XmlType(propOrder = {"email", "phone","cardnumber", "pets"})
 public class Owner implements Serializable
 {
 
@@ -33,8 +34,8 @@ public class Owner implements Serializable
 	private Integer phone;
 	@XmlElement
 	private Integer cardnumber;
-	@XmlElement (name = "Pet")
-	@XmlElementWrapper(name = "Pets")
+	@XmlElement (name = "pet")
+	@XmlElementWrapper(name = "pets")
 	private List<Pet> pets;
 	
 

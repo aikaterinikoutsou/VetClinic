@@ -27,7 +27,7 @@ public class JDBCPetManager implements PetManager{
 	public void addPet(Pet p) {
 		// TODO Auto-generated method stub
 		try {
-		 String sql = "INSERT INTO pets (name, cured, typeOfAnimal, dob, coat, owner_id)"
+		 String sql = "INSERT INTO pets (name, cured, typeOfAnimal, dob, coat, onwer_id)"
 				 + "VALUES(?,?,?,?,?,?)";
 		 
 		 PreparedStatement prep = manager.getConnection().prepareStatement(sql);

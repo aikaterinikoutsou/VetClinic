@@ -104,6 +104,35 @@ public class JDBCOwnerManager implements OwnerManager{
 		
 		return o;
 	}
+
+	@Override
+	public Owner searchOwnerByEmail(String email) {
+		// TODO Auto-generated method stub
+Owner o = null;
+		
+		
+		try {
+			Statement stmt = manager.getConnection().createStatement();
+			String sql = "SELECT * FROM owners WHERE email= \"" + email + "\"";
+		
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			Integer o_id = rs.getInt("id");
+			String name = rs.getString("name");
+			String mail = rs.getString("email");
+			Integer phone = rs.getInt("phone");
+			Integer cardnumber = rs.getInt("cardnumber");
+			
+		    o = new Owner (o_id, name, mail, phone, cardnumber);
+		    
+		    rs.close();
+		    stmt.close();
+		    
+		}catch(Exception e) {e.printStackTrace();}
+		
+		
+		return o;
+	}
 	
 
 }

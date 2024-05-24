@@ -8,4 +8,6 @@ public interface XMLManager {
 
 	public void owner2xml(Integer id);
 	public Pet xml2Pet(File xml);
+	public void simpleTransform(String sourcePath, String xsltPath,String resultDir);
+
 }

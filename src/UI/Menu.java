@@ -1,6 +1,7 @@
 package UI;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.InputStreamReader;
 import java.security.MessageDigest;
 import java.sql.Date;
@@ -127,6 +128,7 @@ public class Menu {
 				System.out.println("3. Add a new pet in the DB");
 				System.out.println("4. Print all the pets of an owner.");
 				System.out.println("5. Print me to xml.");
+				System.out.println("6. Load Pets from xml File");
 				System.out.println("0. Return.");
 				
 				choice = Integer.parseInt(reader.readLine());
@@ -144,6 +146,8 @@ public class Menu {
 					printOwnersPets();
 				case 5:
 					printMe(id);
+				case 6:
+					loadPets();
 				case 0:
 					System.out.println("Back to main menu");
 					
@@ -156,9 +160,19 @@ public class Menu {
 		{e.printStackTrace();}
 	}
 
+	private static void loadPets() {
+		// TODO Auto-generated method stub
+		Pet p = null;
+		File file = new File("./xmls/External-Pet.xml");
+		p = xmlmanager.xml2Pet(file);
+		
+		System.out.print(p);
+	}
+
 	private static void printMe(Integer id) {
 		// TODO Auto-generated method stub
 		xmlmanager.owner2xml(id);
+		xmlmanager.simpleTransform("./xmls/Owner.xml", "./xmls/owner-style.xslt", "./xmls/owner.html");
 	}
 
 	private static void signUpUser() {
