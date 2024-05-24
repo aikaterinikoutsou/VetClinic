@@ -124,6 +124,19 @@ public class JPAUserManager implements UserManager {
 	@Override
 	public void changePassword(User u, String new_passwd) {
 		// TODO Auto-generated method stub
+		try {
+		
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			md.update(new_passwd.getBytes());
+			byte[] pw = md.digest();
+			
+			em.getTransaction().begin();
+			u.setPassword(pw);
+			em.getTransaction().commit();
+		
+		}catch(Exception e) {
+			e.printStackTrace();
+			}
 		
 	}
 

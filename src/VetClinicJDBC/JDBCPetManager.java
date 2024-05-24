@@ -57,8 +57,11 @@ public class JDBCPetManager implements PetManager{
 		List<Pet> pets = new ArrayList<Pet>();
 		
 		try {
+			
+			Owner o = ownermanager.searchOwnerById(owner_id);
+			
 			Statement stmt = manager.getConnection().createStatement();
-			String sql = "SELECT * FROM pets WHERE id="+owner_id;
+			String sql = "SELECT * FROM pets WHERE onwer_id="+owner_id;
 			
 			ResultSet rs = stmt.executeQuery(sql);
 			
@@ -70,9 +73,7 @@ public class JDBCPetManager implements PetManager{
 				String typeOfAnimal = rs.getString("typeOfAnimal");
 				Date dob = rs.getDate("dob");
 				String coat = rs.getString("coat");
-				
-				Owner o = ownermanager.searchOwnerById(owner_id);
-				
+						
 				Pet p = new Pet(id, coat,  name,cured, typeOfAnimal, dob, o);
 				pets.add(p);
 			}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 
 <!DOCTYPE Pet [
-<!ELEMENT Pet (typeofAnimal, cured, coat, dob, owner)>
+<!ELEMENT Pet (typeofAnimal, cured, coat, dob, owner?)>
 	<!ATTLIST Pet name CDATA #REQUIRED>
 		<!ELEMENT typeofAnimal (#PCDATA)>
 		<!ELEMENT cured (#PCDATA)>
@@ -15,10 +15,10 @@
 ]>
 
 
-<Pet name= "Daisy">
-	<typeofAnimal>cat</typeofAnimal>
-	<cured>1</cured>
-	<coat>Grey</coat>
+<Pet name= "Jules">
+	<typeofAnimal>hamster</typeofAnimal>
+	<cured>0</cured>
+	<coat>Brown</coat>
 	<dob>2021-05-12</dob>	
 	<owner name = "Katerina">
 			<email>kkoutsou@freemail.gr</email>	

@@ -38,7 +38,7 @@ public class Menu {
 		ownermanager = new JDBCOwnerManager(jdbcmanager); 
 		petmanager = new JDBCPetManager(jdbcmanager);
 		usermanager = new JPAUserManager();
-		xmlmanager = new XMLManagerImpl();
+		xmlmanager = new XMLManagerImpl(jdbcmanager);
 		
 		try {
 			int choice;
@@ -140,14 +140,19 @@ public class Menu {
 					break;
 				case 2:
 					getAllowners();
+					break;
 				case 3:
 					createPet();
+					break;
 				case 4:
 					printOwnersPets();
+					break;
 				case 5:
 					printMe(id);
+					break;
 				case 6:
 					loadPets();
+					break;
 				case 0:
 					System.out.println("Back to main menu");
 					

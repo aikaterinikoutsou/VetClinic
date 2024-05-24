@@ -26,9 +26,9 @@ public class XMLManagerImpl implements XMLManager {
 	OwnerManager ownermanager;
 	PetManager petmanager;
 	
-	public XMLManagerImpl() {
+	public XMLManagerImpl(JDBCManager m) {
 		super();
-		this.manager = new JDBCManager();
+		this.manager = m;
 		this.ownermanager = new JDBCOwnerManager(manager);
 		this.petmanager = new JDBCPetManager(manager);
 	}
@@ -52,7 +52,7 @@ public class XMLManagerImpl implements XMLManager {
 			JAXBContext jaxbContext = JAXBContext.newInstance(Owner.class);
 			Marshaller marshaller = jaxbContext.createMarshaller();
 			
-			File file = new File("Owner.xml");
+			File file = new File("./xmls/Owner.xml");
 			marshaller.marshal(o, file);
 			System.out.print(o);
 		}
