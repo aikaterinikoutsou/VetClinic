@@ -48,6 +48,7 @@ public class Menu {
 				System.out.println("Choose an option");
 				System.out.println("1. Login User");
 				System.out.println("2. Sign-up new user");
+				System.out.println("3. Update password");
 				System.out.println("0. Exit.");
 								
 				choice = Integer.parseInt(reader.readLine());
@@ -62,7 +63,7 @@ public class Menu {
 					signUpUser();
 					break;
 				case 3: 
-					System.out.println("Udpate the password of an exissting user.");
+					System.out.println("Update the password of an exissting user.");
 					updatePassword();
 					break;
 				case 0:
